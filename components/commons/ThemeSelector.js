@@ -3,19 +3,8 @@ import useTheme from "hooks/useTheme";
 import { useRouter } from "next/router";
 import React from "react";
 import { RiComputerLine, RiMoonClearLine, RiSunLine } from "react-icons/ri";
-const text = {
-  darkTheme: [
-    { language: "es", content: "Tema oscuro" },
-    { language: "en", content: "Dark theme" },
-  ],
-  lightTheme: [
-    { language: "es", content: "Tema claro" },
-    { language: "en", content: "Light theme" },
-  ],
-};
 
 const ThemeSelector = ({ className }) => {
-  const { translate } = useLanguage();
   const { theme, setTheme } = useTheme();
   const router = useRouter();
 

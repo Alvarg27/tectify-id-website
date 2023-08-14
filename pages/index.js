@@ -2,13 +2,14 @@ import LoginForm from "@/components/Illustrations/LoginForm";
 import Button from "@/components/commons/Button";
 import ThemeSelector from "@/components/commons/ThemeSelector";
 import Image from "next/image";
+
 import React from "react";
 import { RiArrowRightLine } from "react-icons/ri";
 
 const Home = () => {
   return (
     <div>
-      <section className="w-full absolute h-[60px] flex justify-center items-center">
+      <section className="w-full absolute z-[2] h-[60px] flex justify-center items-center">
         <div className="max-w-[1200px] w-[95%] flex items-center justify-between">
           <div className="flex items-center">
             <p className="text-4xl font-bold text-blue-700 mr-1">tectify</p>
@@ -17,7 +18,15 @@ const Home = () => {
             </p>
           </div>
 
-          <Button className="text-white bg-black !h-[35px] !px-4 text-sm rounded-md">
+          <Button
+            onClick={() => {
+              window.location.href =
+                process.env.NEXT_PUBLIC_ENVIRONMENT === "production"
+                  ? "https"
+                  : "http" + "://" + process.env.NEXT_PUBLIC_DASHBOARD_URL;
+            }}
+            className="text-white bg-black !h-[35px] !px-4 text-sm rounded-md"
+          >
             Sign up
           </Button>
         </div>
